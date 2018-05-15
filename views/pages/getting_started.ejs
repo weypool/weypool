@@ -1,0 +1,80 @@
+<% include ../partials/header.ejs %>
+
+<div class="container-fluid page-body-wrapper">
+  <div class="main-panel">
+    <div class="content-wrapper">
+      <div class="row">
+
+        <!-- HASHRATE CHART -->
+        <div class="col-lg-12 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Getting Started</h4>
+              <p class="card-description">
+                Baisc get started guide on how to setup your miner
+                <hr>
+              </p>
+              
+              <p>
+                Login using your wallet address as username. An optional workername can be appended to your address separated by a dot character. Leave the password blank.
+              </p>
+
+              <p>
+                Example: WALLET_ADDRESS.WORKER_NAME
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- END HASHRATE CHART -->
+
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Windows</h4>
+              <p class="card-description">
+                
+              </p>
+              <hr>
+              
+              <h6>Nvidia GPU Mining</h6>
+              <ul>
+                <li>Download ccminer from <a href="https://github.com/tpruvot/ccminer/releases" target="_blank">here</a>. Make sure to select the correct version for your hardware and Operating System (32-Bit or 64-Bit) - when in doubt choose 32-Bit</li>
+                <li>Extract the archive and open ccminer.conf in a text-editor of your choice</li>
+                <li>
+                  Replace the contents of the file with: <br>
+                  code here
+                </li>
+                <li>Replace YOUR_WALLET_ADDRESS with your monacoin wallet address. If you don't know your address, read this section first.</li>
+                <li>If you are mining on multiple machines/rigs, you can append an identifier of your choice to your wallet address seperated by a dot to make it easier to distinguish between your rigs when evaluating your results. Example: WALLET_ADDRESS>.OPTIONAL_WORKER_NAME</li>
+                <li>Save the file</li>
+                <li>Start ccminer.exe or ccminer-x64.exe</li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Linux</h4>
+              <p class="card-description">
+                
+              </p>
+              <hr>
+              
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <% include ../partials/iner_footer.ejs %>
+  </div>
+</div>
+
+<% include ../partials/footer.ejs %>

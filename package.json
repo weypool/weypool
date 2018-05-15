@@ -1,0 +1,22 @@
+{
+  "name": "weypool",
+  "version": "0.1.0",
+  "description": "",
+  "engines": {
+    "node": "8.11"
+  },
+  "main": "wae.js",
+  "scripts": {
+    "start": "node wae.js"
+  },
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "needle": "^2.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": "MIT"
+}

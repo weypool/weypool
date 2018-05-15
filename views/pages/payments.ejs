@@ -1,0 +1,42 @@
+<% include ../partials/header.ejs %>
+
+<div class="container-fluid page-body-wrapper">
+  <div class="main-panel">
+    <div class="content-wrapper">
+      <div class="row">
+
+        <!-- PAYMNETS TABLE -->
+        <div class="col-lg-12 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Payments</h4>
+
+              <div class="table-responsive">
+                <table class="table .table-striped payments-history-table">
+                  <thead>
+                    <tr>
+                      <th>Sent On</th>
+                      <th>Address</th>
+                      <th>Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- PAYMNETS TABLE -->
+
+      </div>
+    </div>
+
+    <% include ../partials/iner_footer.ejs %>
+  </div>
+</div>
+
+<script src="/js/payments.js"></script>
+<% include ../partials/footer.ejs %>
