@@ -2,7 +2,7 @@
   "apps": [
     {
       "name": "waepool",
-      "script": "node wae.js",
+      "script": "./wae.js",
       "instances": 0,
       "exec_mode": "cluster",
       "env": {
