@@ -3,7 +3,7 @@
     {
       "name": "waepool",
       "script": "./wae.js",
-      "instances": 0,
+      "instances": 1,
       "exec_mode": "cluster",
       "env": {
         "PORT" : 5500,
@@ -12,10 +12,6 @@
       "env_production": {
         "PORT": 6900,
         "NODE_ENV": "production"
-      },
-      "env_local": {
-        "PORT" : 5400,
-        "NODE_ENV": "local"
       }
     }
   ]
