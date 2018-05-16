@@ -1,0 +1,22 @@
+{
+  "apps": [
+    {
+      "name": "waepool",
+      "script": "node wae.js",
+      "instances": 0,
+      "exec_mode": "cluster",
+      "env": {
+        "PORT" : 5500,
+        "NODE_ENV": "development"
+      },
+      "env_production": {
+        "PORT": 6900,
+        "NODE_ENV": "production"
+      },
+      "env_local": {
+        "PORT" : 5400,
+        "NODE_ENV": "local"
+      }
+    }
+  ]
+}
