@@ -19,14 +19,14 @@
       }
     })
 
-    $(window).scroll(function() {
-      var headerBottom = '.navbar.horizontal-layout .nav-bottom';
-      if ($(window).scrollTop() >= 70) {
-        $(headerBottom).addClass('fixed-top');
-      } else {
-        $(headerBottom).removeClass('fixed-top');
-      }
-    });
+    // $(window).scroll(function() {
+    //   var headerBottom = '.navbar.horizontal-layout .nav-bottom';
+    //   if ($(window).scrollTop() >= 70) {
+    //     $(headerBottom).addClass('fixed-top');
+    //   } else {
+    //     $(headerBottom).removeClass('fixed-top');
+    //   }
+    // });
 
     $(".navbar.horizontal-layout .navbar-menu-wrapper .navbar-toggler").on("click", function() {
       $(".navbar.horizontal-layout .nav-bottom").toggleClass("header-toggled");

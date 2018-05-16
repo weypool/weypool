@@ -40,17 +40,31 @@
               <hr>
               
               <h6>Nvidia GPU Mining</h6>
-              <ul>
+              <ul class="ins-list">
+                <li>The following step requires the 7zip archiver which can be downloaded from <a href="http://www.7-zip.org/download.html" target="_blank">here</a></li>
                 <li>Download ccminer from <a href="https://github.com/tpruvot/ccminer/releases" target="_blank">here</a>. Make sure to select the correct version for your hardware and Operating System (32-Bit or 64-Bit) - when in doubt choose 32-Bit</li>
-                <li>Extract the archive and open ccminer.conf in a text-editor of your choice</li>
-                <li>
-                  Replace the contents of the file with: <br>
-                  code here
+                <li>Extract the archive and open <code>ccminer.conf</code> in a text-editor of your choice</li>
+                <li>Replace the contents of the file with: <br>
+                  <pre style="padding: 0px; margin: 17px 0px -19px 0px;">
+<code class="javascript">{
+  "quiet" : false,
+  "debug" : false,
+  "protocol" : false,
+  "cpu-priority" : 2,
+  "algo" : "lyra2v2",
+  "url" : "stratum+tcp://dig.weypool.com:9310",
+  "user" : "YOUR_WALLET_ADDRESS",
+  "pass" : "x"
+}
+</code>
+                  </pre>
                 </li>
-                <li>Replace YOUR_WALLET_ADDRESS with your monacoin wallet address. If you don't know your address, read this section first.</li>
-                <li>If you are mining on multiple machines/rigs, you can append an identifier of your choice to your wallet address seperated by a dot to make it easier to distinguish between your rigs when evaluating your results. Example: WALLET_ADDRESS>.OPTIONAL_WORKER_NAME</li>
+                <li>Replace <code>YOUR_WALLET_ADDRESS</code> with your WAE wallet address.</li>
+                <li>If you are mining on multiple machines/rigs, you can append an identifier of your choice to your wallet address separated by a dot to make it easier to distinguish between your rigs when evaluating your results. 
+                <br>
+                Example: <code>WALLET_ADDRESS.OPTIONAL_WORKER_NAME</code></li>
                 <li>Save the file</li>
-                <li>Start ccminer.exe or ccminer-x64.exe</li>
+                <li>Start <code>ccminer.exe</code> or <code>ccminer-x64.exe</code></li>
               </ul>
 
             </div>
@@ -66,7 +80,35 @@
               </p>
               <hr>
               
-
+              <h6>Nvidia GPU Mining</h6>
+              <ul class="ins-list">
+                <li>To mine Weycoin on Linux using a Nvidia GPU you first need to install <a href="https://developer.nvidia.com/cuda-downloads" target="_blank">Nvidia Cuda</a></li>
+                <li>Run <code>nvidia-smi</code> in the terminal to confirm Cuda installation</li>
+                <li>Download ccminer's source code from <a href="https://github.com/tpruvot/ccminer/releases" target="_blank">here</a></li>
+                <li>Extract the archive and follow instructions <a href="https://github.com/tpruvot/ccminer/blob/linux/INSTALL" target="_blank">here</a> to build miner</li>
+                <li>Open <code>ccminer.conf</code> in a text-editor of your choice</li>
+                <li>Replace the contents of the file with: <br>
+                  <pre style="padding: 0px; margin: 17px 0px -19px 0px;">
+<code class="javascript">{
+  "quiet" : false,
+  "debug" : false,
+  "protocol" : false,
+  "cpu-priority" : 2,
+  "algo" : "lyra2v2",
+  "url" : "stratum+tcp://dig.weypool.com:9310",
+  "user" : "YOUR_WALLET_ADDRESS",
+  "pass" : "x"
+}
+</code>
+                  </pre>
+                </li>
+                <li>Replace <code>YOUR_WALLET_ADDRESS</code> with your WAE wallet address.</li>
+                <li>If you are mining on multiple machines/rigs, you can append an identifier of your choice to your wallet address separated by a dot to make it easier to distinguish between your rigs when evaluating your results. 
+                <br>
+                Example: <code>WALLET_ADDRESS.OPTIONAL_WORKER_NAME</code></li>
+                <li>Save the file</li>
+                <li>Run <code>./ccminer</code></li>
+              </ul>
             </div>
           </div>
         </div>
@@ -77,4 +119,12 @@
   </div>
 </div>
 
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('pre code').each(function(i, block) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+<script src="/js/highlight.pack.js"></script>
 <% include ../partials/footer.ejs %>
