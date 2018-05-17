@@ -70,16 +70,6 @@ $(function() {
           label: {
             text: 'Pool Hashrate',
             position: 'outer-middle'
-          },
-          tick: {
-            format: function (d) {
-              console.log(d)
-              if (''+d+''.includes(".")) {
-                return Wae.hashFormat(d, 0)
-              } else {
-                return d
-              }
-            }
           }
         },
         y2: {
