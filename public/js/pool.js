@@ -33,26 +33,31 @@ $(function() {
 
   Pool.setRecentHashRate = function(performance) {
     let stats = performance.stats
-    let hash = ['Our Hashrate']
+    let hash = ['Pool Hashrate']
     let time = ['time']
+    let diggers = ['Diggers']
 
     $.each(stats, function(index, stat) {
       hash.push(stat.poolHashrate)
       time.push(new Date(stat.created))
+      diggers.push(stat.connectedMiners)
     })
 
-    let hashData = {
+    let c3LineChart = c3.generate({
+      bindto: '#c3-recent-hash-rate',
+      data: {
         x: 'time',
         xFormat: '%Y-%m-%d %H:%M:%S',
         columns: [
             time,
-            hash
-        ]
-    }
-
-    let c3LineChart = c3.generate({
-      bindto: '#c3-recent-hash-rate',
-      data: hashData,
+            hash,
+            diggers
+        ],
+        axes: {
+          hash: 'y',
+          diggers: 'y2'
+        }
+      },
       axis: {
         x: {
           type: 'timeseries',
@@ -62,10 +67,27 @@ $(function() {
           }
         },
         y: {
+          label: {
+            text: 'Pool Hashrate',
+            position: 'outer-middle'
+          },
           tick: {
             format: function (d) {
-              return Wae.hashFormat(d, 0)
+              console.log(d)
+              if (''+d+''.includes(".")) {
+                return Wae.hashFormat(d, 0)
+              } else {
+                return d
+              }
             }
+          }
+        },
+        y2: {
+          show: true,
+          min: 0,
+          label: {
+            text: 'Diggers',
+            position: 'outer-middle'
           }
         }
       }
