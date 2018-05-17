@@ -22900,3 +22900,7 @@ div.tagsinput {
 .ins-list li {
     font-size: 0.9rem;
 }
+
+.stratum-hosts th, .stratum-hosts td {
+  padding: 0.75rem;
+}

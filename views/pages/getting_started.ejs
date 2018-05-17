@@ -4,6 +4,7 @@
   <div class="main-panel">
     <div class="content-wrapper">
 
+      <!-- TOP INFO -->
       <div class="row">
         <div class="col-md-4 col-sm-6 grid-margin stretch-card">
           <div class="card text-center">
@@ -41,117 +42,89 @@
           </div>
         </div>
       </div>
+      <!-- TOP INFO -->
 
+      <!-- QUICK CONFIGURATION -->
       <div class="row">
-
-        <!-- HASHRATE CHART -->
         <div class="col-lg-12 grid-margin stretch-card">
           <div class="card">
             <div class="card-body">
-              <h4 class="card-title">Getting Started</h4>
-              <p class="card-description">
-                Baisc get started guide on how to setup your miner
-                <hr>
-              </p>
-              
-              <p>
-                Login using your wallet address as username. An optional workername can be appended to your address separated by a dot character. Leave the password blank.
-              </p>
-
-              <p>
-                Example: WALLET_ADDRESS.WORKER_NAME
-              </p>
-            </div>
-          </div>
-        </div>
-        <!-- END HASHRATE CHART -->
-
-      </div>
-
-      <div class="row">
-        <div class="col-md-6 grid-margin stretch-card">
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">Windows</h4>
-              <p class="card-description">
-                
-              </p>
+              <h4 class="card-title">Quick Configuration Reference</h4>
               <hr>
-              
-              <h6>Nvidia GPU Mining</h6>
-              <ul class="ins-list">
-                <li>The following step requires the 7zip archiver which can be downloaded from <a href="http://www.7-zip.org/download.html" target="_blank">here</a></li>
-                <li>Download ccminer from <a href="https://github.com/tpruvot/ccminer/releases" target="_blank">here</a>. Make sure to select the correct version for your hardware and Operating System (32-Bit or 64-Bit) - when in doubt choose 32-Bit</li>
-                <li>Extract the archive and open <code>ccminer.conf</code> in a text-editor of your choice</li>
-                <li>Replace the contents of the file with: <br>
-                  <pre style="padding: 0px; margin: 17px 0px -19px 0px;">
-<code class="javascript">{
-  "quiet" : false,
-  "debug" : false,
-  "protocol" : false,
-  "cpu-priority" : 2,
-  "algo" : "lyra2v2",
-  "url" : "stratum+tcp://dig.weypool.com:9310",
-  "user" : "YOUR_WALLET_ADDRESS",
-  "pass" : "x"
-}
-</code>
-                  </pre>
-                </li>
-                <li>Replace <code>YOUR_WALLET_ADDRESS</code> with your WAE wallet address.</li>
-                <li>If you are mining on multiple machines/rigs, you can append an identifier of your choice to your wallet address separated by a dot to make it easier to distinguish between your rigs when evaluating your results. 
-                <br>
-                Example: <code>WALLET_ADDRESS.OPTIONAL_WORKER_NAME</code></li>
-                <li>Save the file</li>
-                <li>Start <code>ccminer.exe</code> or <code>ccminer-x64.exe</code></li>
-              </ul>
 
-            </div>
-          </div>
-        </div>
+              <div class="row">
+                <div class="col-lg-6 col-sm-12" style="margin-top: 10px;">
+                  <h6>Stratum Servers</h6>
+                  <table class="table table-bordered stratum-hosts">
+                    <thead>
+                      <tr>
+                        <th>Host</th>
+                        <th>Region</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>dig.weypool.com</td>
+                        <td>USA</td>                        
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
 
-        <div class="col-md-6 grid-margin stretch-card">
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">Linux</h4>
-              <p class="card-description">
-                
-              </p>
-              <hr>
-              
-              <h6>Nvidia GPU Mining</h6>
-              <ul class="ins-list">
-                <li>To mine Weycoin on Linux using a Nvidia GPU you first need to install <a href="https://developer.nvidia.com/cuda-downloads" target="_blank">Nvidia Cuda</a></li>
-                <li>Run <code>nvidia-smi</code> in the terminal to confirm Cuda installation</li>
-                <li>Download ccminer's source code from <a href="https://github.com/tpruvot/ccminer/releases" target="_blank">here</a></li>
-                <li>Extract the archive and follow instructions <a href="https://github.com/tpruvot/ccminer/blob/linux/INSTALL" target="_blank">here</a> to build miner</li>
-                <li>Open <code>ccminer.conf</code> in a text-editor of your choice</li>
-                <li>Replace the contents of the file with: <br>
-                  <pre style="padding: 0px; margin: 17px 0px -19px 0px;">
-<code class="javascript">{
-  "quiet" : false,
-  "debug" : false,
-  "protocol" : false,
-  "cpu-priority" : 2,
-  "algo" : "lyra2v2",
-  "url" : "stratum+tcp://dig.weypool.com:9310",
-  "user" : "YOUR_WALLET_ADDRESS",
-  "pass" : "x"
-}
-</code>
-                  </pre>
+                <div class="col-lg-6 col-sm-12" style="margin-top: 10px;">
+                  <h6>Stratum Ports</h6>
+                  <table class="table table-bordered stratum-hosts">
+                    <thead>
+                      <tr>
+                        <th>Port</th>
+                        <th>Hashrate</th>
+                        <th>Detail</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>9301</td>
+                        <td>100kH/s -- 20MH/s</td>
+                        <td>CPU and mid-range GPU miners</td>
+                      </tr>
+                      <tr>
+                        <td>9310</td>
+                        <td>35MH/s -- ∞</td>
+                        <td>high-end GPU miners</td>
+                      </tr>
+                      <tr>
+                        <td>9320</td>
+                        <td>500MH/s -- ∞</td>
+                        <td>cloud miners</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <br>
+              <br>
+
+              <h6>Additional Information</h6>
+              <ul>
+                <li>
+                  Login using your wallet address as username. An optional worker name can be appended to your address separated by a dot character. Leave the password blank.
+                  <br>
+                  Example: <code>WALLET_ADDRESS.WORKER_NAME</code>
                 </li>
-                <li>Replace <code>YOUR_WALLET_ADDRESS</code> with your WAE wallet address.</li>
-                <li>If you are mining on multiple machines/rigs, you can append an identifier of your choice to your wallet address separated by a dot to make it easier to distinguish between your rigs when evaluating your results. 
-                <br>
-                Example: <code>WALLET_ADDRESS.OPTIONAL_WORKER_NAME</code></li>
-                <li>Save the file</li>
-                <li>Run <code>./ccminer</code></li>
-              </ul>
+                <li>
+                  You can use one worker name for all your miners. However, we recommend to connect every miner to a separate worker for easier monitoring.
+                </li>
+              </ul> 
             </div>
           </div>
         </div>
       </div>
+      <!-- END QUICK CONFIGURATION -->
+
+      <!-- GETTING STARTED -->
+      <!-- END GETTING STARTED -->
+
     </div>
 
     <% include ../partials/iner_footer.ejs %>
