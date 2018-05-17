@@ -8,7 +8,7 @@ $(function() {
   }
 
   Wae.getPool = function() {
-    axios.get("http://149.28.110.236:4000/api/pools/wae")
+    axios.get("https://miningcore-usa-00.weypool.com/api/pools/wae")
     .then(function (response) {
       Pool.main(response.data)
     })
@@ -18,7 +18,7 @@ $(function() {
   }
 
   Wae.getPoolPerformance = function() {
-    axios.get("http://149.28.110.236:4000/api/pools/wae/performance")
+    axios.get("https://miningcore-usa-00.weypool.com/api/pools/wae/performance")
     .then(function (response) {
       Pool.setRecentHashRate(response.data)
     })
@@ -28,7 +28,7 @@ $(function() {
   }
 
   Wae.getBlocks = function() {
-    axios.get("http://149.28.110.236:4000/api/pools/wae/blocks?page=0&pageSize=15")
+    axios.get("https://miningcore-usa-00.weypool.com/api/pools/wae/blocks?page=0&pageSize=15")
     .then(function (response) {
       Blocks.main(response.data)
     })
@@ -38,7 +38,7 @@ $(function() {
   }
 
   Wae.getPayments = function() {
-    axios.get("http://149.28.110.236:4000/api/pools/wae/payments?page=0&pageSize=15")
+    axios.get("https://miningcore-usa-00.weypool.com/api/pools/wae/payments?page=0&pageSize=15")
     .then(function (response) {
       Payments.main(response.data)
     })
@@ -84,7 +84,7 @@ $(function() {
   //     blocks: []
   //   },
   //   mounted() {
-  //     axios.get("http://149.28.110.236:4000/api/pools/wae/blocks?page=1&pageSize=12")
+  //     axios.get("https://miningcore-usa-00.weypool.com/api/pools/wae/blocks?page=1&pageSize=12")
   //     .then(response => {this.blocks = response.data})
   //   }
   // })
