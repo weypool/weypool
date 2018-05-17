@@ -14,8 +14,8 @@ $(function() {
 
   Pool.setTopStats = function() {
     $('.diggers').html(rawPool.pool.poolStats.connectedMiners)
-    $('.our-hashrate').html(Wae.hashFormat(rawPool.pool.poolStats.poolHashrate, 0))
-    $('.queens-hashrate').html(Wae.hashFormat(rawPool.pool.networkStats.networkHashrate, 0))
+    $('.our-hashrate').html(Wae.hashFormat(rawPool.pool.poolStats.poolHashrate, 2))
+    $('.queens-hashrate').html(Wae.hashFormat(rawPool.pool.networkStats.networkHashrate, 2))
     $('.difficulty').html(Wae.hashFormat(rawPool.pool.networkStats.networkDifficulty, 0, ""))
   }
 
