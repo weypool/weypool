@@ -30,7 +30,7 @@ $(function() {
           '<tr>',
             '<td>'+miner.miner+'</td>',
             '<td>'+Wae.hashFormat(miner.hashrate, 0)+'</td>',
-            '<td>'+Wae.hashFormat(miner.sharesPerSecond, 0, 's')+'</td>',
+            '<td>'+Wae.hashFormat(miner.sharesPerSecond, 0, 'S/s')+'</td>',
           '</tr>'
         ].join(''))
     })
