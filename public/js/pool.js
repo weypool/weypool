@@ -40,7 +40,7 @@ $(function() {
     let stats = performance.stats
     let hash = ['Pool Hashrate']
     let time = ['time']
-    let diggers = ['Diggers']
+    let diggers = ['Miners']
 
     $.each(stats, function(index, stat) {
       hash.push(stat.poolHashrate)
