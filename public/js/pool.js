@@ -17,6 +17,11 @@ $(function() {
     $('.our-hashrate').html(Wae.hashFormat(rawPool.pool.poolStats.poolHashrate, 2))
     $('.queens-hashrate').html(Wae.hashFormat(rawPool.pool.networkStats.networkHashrate, 2))
     $('.difficulty').html(Wae.hashFormat(rawPool.pool.networkStats.networkDifficulty, 0, ""))
+
+    $('.pool-algorithm').html(rawPool.pool.coin.algorithm)
+    $('.pool-payment').html(rawPool.pool.paymentProcessing.payoutScheme)
+    $('.pool-fee').html(rawPool.pool.poolFeePercent)
+    $('.pool-minimun-payout').html(rawPool.pool.paymentProcessing.minimumPayment + ' ' + rawPool.pool.coin.type)
   }
 
   Pool.setTopDiggers = function() {
