@@ -135,7 +135,7 @@
               stacked: true,
               ticks: {
                 beginAtZero: true,
-                fontColor: "#354168"
+                fontColor: "#a7249c"
               },
               gridLines: {
                 color: "rgba(0, 0, 0, 0)",
