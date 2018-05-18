@@ -20,7 +20,7 @@ $(function() {
 
     $('.pool-algorithm').html(rawPool.pool.coin.algorithm)
     $('.pool-payment').html(rawPool.pool.paymentProcessing.payoutScheme)
-    $('.pool-fee').html(rawPool.pool.poolFeePercent)
+    $('.pool-fee').html(rawPool.pool.poolFeePercent+'%')
     $('.pool-minimun-payout').html(rawPool.pool.paymentProcessing.minimumPayment + ' ' + rawPool.pool.coin.type)
   }
 
@@ -62,6 +62,9 @@ $(function() {
           hash: 'y',
           diggers: 'y2'
         }
+      },
+      color: {
+        pattern: ['#db2d94', '#fdd1ac']
       },
       axis: {
         x: {
