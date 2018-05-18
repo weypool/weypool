@@ -10,7 +10,6 @@ $(function() {
 
     if (localStorage.getItem('worker-address')) {
       // has not ben set
-      console.log(localStorage.getItem('worker-address'))
       Dashboard.getMiner(localStorage.getItem('worker-address'))
       // $('.set-worker').hide()
     }
@@ -44,18 +43,42 @@ $(function() {
     $('.miner-my-hashrate').html(Wae.hashFormat(totalHashrate, 0))
   }
 
-  Dashboard.setMinerDate = function(data) {
+  Dashboard.setMinerData = function(data) {
     $('.miner-pending-shares').html(Wae.hashFormat(data.pendingShares, 0, 'S', false))
     $('.miner-total-earning').html(data.totalPaid)
     $('.miner-last-payment').html(data.lastPayment)
 
     Dashboard.setWorkers(data.performance.workers)
+
+    Dashboard.getMinerPayments()
+  }
+
+  Dashboard.setMinerPayments = function(payments) {
+    $.each(payments, function(index, payment) {
+      $('.miner-payments-table tbody').append([
+          '<tr>',
+            '<td>'+payment.created+'</td>',
+            '<td><a href="'+payment.addressInfoLink+'" target="_blank">'+payment.address+'</a></td>',
+            '<td><a href="'+payment.transactionInfoLink+'" target="_blank">'+payment.amount+'</a></td>',
+          '</tr>'
+        ].join(''))
+    })
   }
 
   Dashboard.getMiner = function(address) {
     axios.get("https://miningcore-usa-00.weypool.com/api/pools/wae/miners/"+address)
     .then(function (response) {
-      Dashboard.setMinerDate(response.data)
+      Dashboard.setMinerData(response.data)
+    })
+    .catch(function (err) {
+      console.log(err)
+    });
+  }
+
+  Dashboard.getMinerPayments = function() {
+    axios.get("https://miningcore-usa-00.weypool.com/api/pools/wae/miners/"+localStorage.getItem('worker-address')+'/payments')
+    .then(function (response) {
+      Dashboard.setMinerPayments(response.data)
     })
     .catch(function (err) {
       console.log(err)
