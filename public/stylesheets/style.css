@@ -22593,8 +22593,8 @@ div.tagsinput {
   -moz-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.08);
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.08); }
   .navbar.horizontal-layout .navbar-brand-wrapper {
-    width: 185px;
-    height: 70px; }
+    width: 240px;
+    height: 87px; }
     .navbar.horizontal-layout .navbar-brand-wrapper .navbar-brand {
       color: #fff;
       font-size: 1.5rem;
@@ -22605,8 +22605,9 @@ div.tagsinput {
         color: #424546; }
       .navbar.horizontal-layout .navbar-brand-wrapper .navbar-brand img {
         max-width: 100%;
-        height: 31px;
+        height: 42px;
         margin: auto;
+        margin-top: 10px;
         vertical-align: middle; }
     .navbar.horizontal-layout .navbar-brand-wrapper .brand-logo-mini {
       display: none; }
