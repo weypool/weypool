@@ -1,13 +1,31 @@
 $(function() {
   window.Dashboard = {}
   let rawDashboard = ""
+  let totalHashrate = 0
 
   
 
   Dashboard.main = function() {
     // first time
 
-    Dashboard.getMiner()
+    if (localStorage.getItem('worker-address')) {
+      // has not ben set
+      console.log(localStorage.getItem('worker-address'))
+      Dashboard.getMiner(localStorage.getItem('worker-address'))
+      // $('.set-worker').hide()
+    }
+
+    Dashboard.inputHawk()
+  }
+
+  Dashboard.inputHawk = function() {
+    $(".track-worker").click(function() {
+      if ($(".worker-address").val().length != 0) {
+        localStorage.setItem('worker-address', $(".worker-address").val())
+        Dashboard.getMiner($(".worker-address").val())
+        // $('.set-worker').hide()
+      }
+    });
   }
 
   Dashboard.setWorkers = function(workers) {
@@ -19,7 +37,11 @@ $(function() {
             '<td>'+Wae.hashFormat(worker.sharesPerSecond, 0, 'S/s')+'</td>',
           '</tr>'
         ].join(''))
+
+      totalHashrate += worker.hashrate
     })
+
+    $('.miner-my-hashrate').html(Wae.hashFormat(totalHashrate, 0))
   }
 
   Dashboard.setMinerDate = function(data) {
@@ -30,8 +52,8 @@ $(function() {
     Dashboard.setWorkers(data.performance.workers)
   }
 
-  Dashboard.getMiner = function() {
-    axios.get("https://miningcore-usa-00.weypool.com/api/pools/wae/miners/KdJxUVKS3vNBdL3JR8WUJPvf9hzvnwB4NX")
+  Dashboard.getMiner = function(address) {
+    axios.get("https://miningcore-usa-00.weypool.com/api/pools/wae/miners/"+address)
     .then(function (response) {
       Dashboard.setMinerDate(response.data)
     })
@@ -40,17 +62,6 @@ $(function() {
     });
   }
 
-  // Payments.setHistory = function() {
-  //   $.each(rawPayments, function(index, payment) {
-  //     $('.payments-history-table tbody').append([
-  //         '<tr>',
-  //           '<td>'+payment.created+'</td>',
-  //           '<td><a href="'+payment.addressInfoLink+'" target="_blank">'+payment.address+'</a></td>',
-  //           '<td><a href="'+payment.transactionInfoLink+'" target="_blank">'+payment.amount+'</a></td>',
-  //         '</tr>'
-  //       ].join(''))
-  //   })
-  // }
 
   Dashboard.main()
 
