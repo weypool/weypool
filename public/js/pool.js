@@ -81,7 +81,7 @@ $(function() {
           show: true,
           min: 0,
           label: {
-            text: 'Diggers',
+            text: 'Miners',
             position: 'outer-middle'
           }
         }
