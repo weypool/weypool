@@ -10,9 +10,9 @@
     "start": "node wae.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "ejs": "^2.6.1",
-    "express": "^4.16.3",
-    "needle": "^2.2.1"
+    "express": "^4.16.3"
   },
   "repository": {
     "type": "git",

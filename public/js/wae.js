@@ -8,43 +8,43 @@ $(function() {
   }
 
   Wae.getPool = function() {
-    axios.get("https://miningcore-usa-00.weypool.com/api/pools/wae")
+    axios.get("/api/pools/wae")
     .then(function (response) {
       Pool.main(response.data)
     })
     .catch(function (err) {
       console.log(err)
-    });
+    })
   }
 
   Wae.getPoolPerformance = function() {
-    axios.get("https://miningcore-usa-00.weypool.com/api/pools/wae/performance")
+    axios.get("/api/pools/wae/performance")
     .then(function (response) {
       Pool.setRecentHashRate(response.data)
     })
     .catch(function (err) {
       console.log(err)
-    });
+    })
   }
 
   Wae.getBlocks = function() {
-    axios.get("https://miningcore-usa-00.weypool.com/api/pools/wae/blocks?page=0&pageSize=15")
+    axios.get("/api/pools/wae/blocks/0/20")
     .then(function (response) {
       Blocks.main(response.data)
     })
     .catch(function (err) {
       console.log(err)
-    });
+    })
   }
 
   Wae.getPayments = function() {
-    axios.get("https://miningcore-usa-00.weypool.com/api/pools/wae/payments?page=0&pageSize=15")
+    axios.get("/api/pools/wae/payments/0/20")
     .then(function (response) {
       Payments.main(response.data)
     })
     .catch(function (err) {
       console.log(err)
-    });
+    })
   }
 
   Wae.hashFormat = function(hash, decimal, unit="H/s", symbolT=true) {
@@ -63,7 +63,7 @@ $(function() {
             { hash: 1e18, symbol: "E" },
             { hash: 1e21, symbol: "Z" },
             { hash: 1e24, symbol: "Y" },
-        ];
+        ]
         for (var i = si.length - 1; i > 0; i--) {
             if (hash >= si[i].hash) {
                 break
@@ -77,16 +77,4 @@ $(function() {
         
     }
   }
-
-  // const blockHistory = new Vue({
-  //   el: '.block-history',
-  //   data: {
-  //     blocks: []
-  //   },
-  //   mounted() {
-  //     axios.get("https://miningcore-usa-00.weypool.com/api/pools/wae/blocks?page=1&pageSize=12")
-  //     .then(response => {this.blocks = response.data})
-  //   }
-  // })
-
 })

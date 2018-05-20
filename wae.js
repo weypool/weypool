@@ -2,7 +2,8 @@ const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5400
 
-const routes = require('./routes/index')
+const pageRoutes = require('./routes/page')
+const apiRoutes = require('./routes/api')
 
 const app = express()
 
@@ -13,7 +14,8 @@ app.set('view engine', 'ejs')
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.use('/', routes)
+app.use('/', pageRoutes)
+app.use('/api', apiRoutes)
 
 // express()
 //   .use(express.static(path.join(__dirname, 'public')))
