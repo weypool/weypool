@@ -40,12 +40,12 @@ $(function() {
     let stats = performance.stats
     let hash = ['Pool Hashrate']
     let time = ['time']
-    let diggers = ['Miners']
+    // let diggers = ['Miners']
 
     $.each(stats, function(index, stat) {
       hash.push(stat.poolHashrate)
       time.push(new Date(stat.created))
-      diggers.push(stat.connectedMiners)
+      // diggers.push(stat.connectedMiners)
     })
 
     let c3LineChart = c3.generate({
@@ -56,11 +56,11 @@ $(function() {
         columns: [
             time,
             hash,
-            diggers
+            // diggers
         ],
         axes: {
           hash: 'y',
-          diggers: 'y2'
+          // diggers: 'y2'
         }
       },
       color: {
@@ -78,16 +78,21 @@ $(function() {
           label: {
             text: 'Pool Hashrate',
             position: 'outer-middle'
+          },
+          tick: {
+            format: function (d) {
+              return Wae.hashFormat(d, 0)
+            }
           }
         },
-        y2: {
-          show: true,
-          min: 0,
-          label: {
-            text: 'Miners',
-            position: 'outer-middle'
-          }
-        }
+        // y2: {
+        //   show: true,
+        //   min: 0,
+        //   label: {
+        //     text: 'Miners',
+        //     position: 'outer-middle'
+        //   }
+        // }
       }
     })
   }

@@ -3,8 +3,6 @@ $(function() {
   let rawDashboard = ""
   let totalHashrate = 0
 
-  
-
   Dashboard.main = function() {
     // first time
 
