@@ -28,7 +28,7 @@ $(function() {
   }
 
   Wae.getBlocks = function() {
-    axios.get("/api/pools/wae/blocks/0/20")
+    axios.get("/api/pools/wae/blocks/0/15")
     .then(function (response) {
       Blocks.main(response.data)
     })
@@ -38,7 +38,7 @@ $(function() {
   }
 
   Wae.getPayments = function() {
-    axios.get("/api/pools/wae/payments/0/20")
+    axios.get("/api/pools/wae/payments/0/15")
     .then(function (response) {
       Payments.main(response.data)
     })
