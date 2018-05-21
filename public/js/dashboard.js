@@ -9,7 +9,11 @@ $(function() {
     if (localStorage.getItem('worker-address')) {
       // has not ben set
       Dashboard.getMiner(localStorage.getItem('worker-address'))
-      // $('.set-worker').hide()
+      $(".worker-address").val(localStorage.getItem('worker-address'))
+
+      // flip buttons
+      $('.track-worker').hide()
+      $('.reset-dashboard').show()
     }
 
     Dashboard.inputHawk()
@@ -20,8 +24,22 @@ $(function() {
       if ($(".worker-address").val().length != 0) {
         localStorage.setItem('worker-address', $(".worker-address").val())
         Dashboard.getMiner($(".worker-address").val())
-        // $('.set-worker').hide()
+        
+        // flip buttons
+        $('.track-worker').hide()
+        $('.reset-dashboard').show()
       }
+    });
+
+    $(".reset-dashboard").click(function() {
+
+      $(".worker-address").val("")
+
+      // flip buttons
+      $('.reset-dashboard').hide()
+      $('.track-worker').show()
+
+      localStorage.removeItem('worker-address')
     });
   }
 
@@ -44,7 +62,7 @@ $(function() {
   Dashboard.setMinerData = function(data) {
     $('.miner-pending-shares').html(Wae.hashFormat(data.pendingShares, 0, 'S', false))
     $('.miner-total-earning').html(data.totalPaid)
-    $('.miner-last-payment').html(data.lastPayment)
+    $('.miner-last-payment').html(moment(Date.parse(data.lastPayment)).fromNow()) // .format("MM/DD/YYYY")
 
     Dashboard.setWorkers(data.performance.workers)
 

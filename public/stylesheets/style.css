@@ -22913,3 +22913,8 @@ div.tagsinput {
 .color-dark-pink {
   color: #a7249c;
 }
+
+.miner-statistics .card-col {
+    border-bottom: 1px solid #d5dcec;
+    border-right: none;
+}
