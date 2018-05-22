@@ -69,4 +69,26 @@ router.get('/pools/:poolID/payments/:page/:pageSize', function(req, res, next) {
   });  
 });
 
+// Get miner by address
+router.get('/pools/:poolID/miners/:address', function(req, res, next) {
+  axios.get(API_HOST+'/pools/'+req.params.poolID+'/miners/'+req.params.address)
+  .then(function (response) {
+    res.json(response.data)
+  })
+  .catch(function (error) {
+    res.json({error: error})
+  });  
+});
+
+// Get miner payment
+router.get('/pools/:poolID/miners/:address/payments', function(req, res, next) {
+  axios.get(API_HOST+'/pools/'+req.params.poolID+'/miners/'+req.params.address+'/payments')
+  .then(function (response) {
+    res.json(response.data)
+  })
+  .catch(function (error) {
+    res.json({error: error})
+  });  
+});
+
 module.exports = router

@@ -64,25 +64,37 @@ $(function() {
     $('.miner-total-earning').html(data.totalPaid)
     $('.miner-last-payment').html(moment(Date.parse(data.lastPayment)).fromNow()) // .format("MM/DD/YYYY")
 
-    Dashboard.setWorkers(data.performance.workers)
+    if (data.hasOwnProperty('performance')) {
+      $('.appear-hh-worker').hide()
+      Dashboard.setWorkers(data.performance.workers)
+    } else {
+      $('.appear-hh-worker').html("No active worker")
+    }    
 
     Dashboard.getMinerPayments()
   }
 
   Dashboard.setMinerPayments = function(payments) {
-    $.each(payments, function(index, payment) {
-      $('.miner-payments-table tbody').append([
-          '<tr>',
-            '<td>'+payment.created+'</td>',
-            '<td><a href="'+payment.addressInfoLink+'" target="_blank">'+payment.address+'</a></td>',
-            '<td><a href="'+payment.transactionInfoLink+'" target="_blank">'+payment.amount+'</a></td>',
-          '</tr>'
-        ].join(''))
-    })
+    if (payments.length == 0) {
+      $('.appear-hh-payments').html("No payments have been made")
+    } else {
+      $('.appear-hh-payments').hide()
+
+      $.each(payments, function(index, payment) {
+        $('.miner-payments-table tbody').append([
+            '<tr>',
+              '<td>'+payment.created+'</td>',
+              '<td><a href="'+payment.addressInfoLink+'" target="_blank">'+payment.address+'</a></td>',
+              '<td><a href="'+payment.transactionInfoLink+'" target="_blank">'+payment.amount+'</a></td>',
+            '</tr>'
+          ].join(''))
+      })
+    }
+    
   }
 
   Dashboard.getMiner = function(address) {
-    axios.get("https://miningcore-usa-00.weypool.com/api/pools/wae/miners/"+address)
+    axios.get("/api/pools/wae/miners/"+address)
     .then(function (response) {
       Dashboard.setMinerData(response.data)
     })
@@ -92,7 +104,7 @@ $(function() {
   }
 
   Dashboard.getMinerPayments = function() {
-    axios.get("https://miningcore-usa-00.weypool.com/api/pools/wae/miners/"+localStorage.getItem('worker-address')+'/payments')
+    axios.get("/api/pools/wae/miners/"+localStorage.getItem('worker-address')+'/payments')
     .then(function (response) {
       Dashboard.setMinerPayments(response.data)
     })

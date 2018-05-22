@@ -14866,7 +14866,7 @@ address p {
   font-size: 0.8rem; }
 
 .icon-lg {
-  font-size: 2.5rem; }
+  font-size: 1.9rem; }
 
 .icon-md {
   font-size: 1.275rem; }
@@ -22921,4 +22921,9 @@ div.tagsinput {
 
 .set-worker .input-group-btn button {
   width: 100%;
+}
+
+.appear-hh {
+  text-align: center;
+  margin-top: 54px;
 }
