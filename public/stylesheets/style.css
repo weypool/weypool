@@ -9317,8 +9317,8 @@ fieldset:disabled a {
   border-color: #db2d94; }
   .btn-primary:hover, .wizard > .actions a:hover {
     color: #fff;
-    background-color: #252ddf;
-    border-color: #1f28d8; }
+    background-color: #fdd1ac;
+    border-color: #fdd1ac; }
   .btn-primary:focus, .wizard > .actions a:focus, .btn-primary.focus, .wizard > .actions a.focus {
     box-shadow: 0 0 0 0.2rem rgba(70, 77, 228, 0.5); }
   .btn-primary.disabled, .wizard > .actions a.disabled, .btn-primary:disabled, .wizard > .actions a:disabled {
@@ -9329,8 +9329,8 @@ fieldset:disabled a {
   .show > .btn-primary.dropdown-toggle, .wizard > .actions
   .show > a.dropdown-toggle {
     color: #fff;
-    background-color: #1f28d8;
-    border-color: #1e26cc; }
+    background-color: #fdd1ac;
+    border-color: #fdd1ac; }
     .btn-primary:not(:disabled):not(.disabled):active:focus, .wizard > .actions a:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .wizard > .actions a:not(:disabled):not(.disabled).active:focus,
     .show > .btn-primary.dropdown-toggle:focus, .wizard > .actions
     .show > a.dropdown-toggle:focus {
@@ -11481,7 +11481,7 @@ input[type="button"].btn-block {
   .badge-primary[href]:hover, .badge-primary[href]:focus {
     color: #fff;
     text-decoration: none;
-    background-color: #1f28d8; }
+    background-color: #fdd1ac; }
 
 .badge-secondary {
   color: #212529;
@@ -12373,7 +12373,7 @@ button.close {
 a.bg-primary:hover, a.bg-primary:focus,
 button.bg-primary:hover,
 button.bg-primary:focus {
-  background-color: #1f28d8 !important; }
+  background-color: #fdd1ac !important; }
 
 .bg-secondary {
   background-color: #dfe8fb !important; }
@@ -14279,7 +14279,7 @@ button.bg-dark:focus {
   color: #db2d94 !important; }
 
 a.text-primary:hover, a.text-primary:focus {
-  color: #1f28d8 !important; }
+  color: #fdd1ac !important; }
 
 .text-secondary {
   color: #dfe8fb !important; }
@@ -22917,4 +22917,8 @@ div.tagsinput {
 .miner-statistics .card-col-ddd {
     border-bottom: 1px solid #d5dcec;
     border-right: none;
+}
+
+.set-worker .input-group-btn button {
+  width: 100%;
 }
