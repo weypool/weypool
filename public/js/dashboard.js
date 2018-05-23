@@ -61,7 +61,7 @@ $(function() {
 
   Dashboard.setMinerData = function(data) {
     $('.miner-pending-shares').html(Wae.hashFormat(data.pendingShares, 0, 'S', false))
-    $('.miner-total-earning').html(data.totalPaid)
+    $('.miner-total-earning').html(Wae.hashFormat(data.totalPaid, 4, 'WAE'))
     $('.miner-last-payment').html(moment(Date.parse(data.lastPayment)).fromNow()) // .format("MM/DD/YYYY")
 
     if (data.hasOwnProperty('performance')) {
