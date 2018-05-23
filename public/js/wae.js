@@ -64,17 +64,20 @@ $(function() {
             { hash: 1e21, symbol: "Z" },
             { hash: 1e24, symbol: "Y" },
         ]
+
         for (var i = si.length - 1; i > 0; i--) {
             if (hash >= si[i].hash) {
                 break
             }
         }
+
+        let res = ((Math.floor((hash / si[i].hash)*(Math.pow(10,decimal))))/(Math.pow(10,decimal))).toString();
+
         if (symbolT) {
-          return (hash / si[i].hash).toFixed(decimal).replace(/\.0+$|(\.[0-9]*[1-9])0+$/, "$1") + ' ' + si[i].symbol + unit
+          return res.replace(/\.0+$|(\.[0-9]*[1-9])0+$/, "$1") + ' ' + si[i].symbol + unit
         } else {
-          return (hash / si[i].hash).toFixed(decimal).replace(/\.0+$|(\.[0-9]*[1-9])0+$/, "$1")  
-        }
-        
+          return res.replace(/\.0+$|(\.[0-9]*[1-9])0+$/, "$1")  
+        }        
     }
   }
 })
