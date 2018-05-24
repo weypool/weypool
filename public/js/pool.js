@@ -10,6 +10,44 @@ $(function() {
 
     Pool.setTopStats()
     Pool.setTopDiggers()
+
+    Pool.socketShit()
+  }
+
+  Pool.socketShit = function() {
+    var connection = new WebSocketManager.Connection("ws://159.65.33.54:6969/pipeline");
+
+    // optional.
+		// called when the connection has been established together with your id.
+		connection.connectionMethods.onConnected = () => {
+      console.log(connection.connectionId)
+    };
+    
+    // optional.
+		// called when the connection to the server has been lost.
+		connection.connectionMethods.onDisconnected = () => {
+			console.log("Disconnected")
+		};
+		
+    // here we register a method with two arguments that can be called by the server.
+		connection.clientMethods["blocks"] = (data) => {
+			console.log(data)
+    };
+    
+    connection.clientMethods["shares"] = (data) => {
+			console.log(data)
+    };
+    
+    connection.clientMethods["poolStats"] = (data) => {
+			console.log(data)
+    };
+    
+    connection.clientMethods["minerStats"] = (data) => {
+			console.log(data)
+		};
+    
+    // establish a connection to the server.
+    connection.start();
   }
 
   Pool.setTopStats = function() {
