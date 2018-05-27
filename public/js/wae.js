@@ -47,6 +47,22 @@ $(function() {
     })
   }
 
+  Wae.getMiner = function(address) {
+    try {
+      return axios.get("/api/pools/wae/miners/"+address)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  Wae.getMinerPayments = function(address) {
+    try {
+      return axios.get("/api/pools/wae/miners/"+address+'/payments')
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   Wae.hashFormat = function(hash, decimal, unit="H/s", symbolT=true) {
     if (hash === 0) {
         return '0 ' + unit

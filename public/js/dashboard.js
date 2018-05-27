@@ -8,8 +8,17 @@ $(function() {
 
     if (localStorage.getItem('worker-address')) {
       // has not ben set
-      Dashboard.getMiner(localStorage.getItem('worker-address'))
       $(".worker-address").val(localStorage.getItem('worker-address'))
+
+      Wae.getMiner(localStorage.getItem('worker-address'))
+      .then(function (response) {
+        Dashboard.setMinerData(response.data)
+      })
+
+      Wae.getMinerPayments(localStorage.getItem('worker-address'))
+      .then(function (response) {
+        Dashboard.setMinerPayments(response.data)
+      })
 
       // flip buttons
       $('.track-worker').hide()
@@ -70,8 +79,6 @@ $(function() {
     } else {
       $('.appear-hh-worker').html("No active worker")
     }    
-
-    Dashboard.getMinerPayments()
   }
 
   Dashboard.setMinerPayments = function(payments) {
@@ -93,27 +100,5 @@ $(function() {
     
   }
 
-  Dashboard.getMiner = function(address) {
-    axios.get("/api/pools/wae/miners/"+address)
-    .then(function (response) {
-      Dashboard.setMinerData(response.data)
-    })
-    .catch(function (err) {
-      console.log(err)
-    });
-  }
-
-  Dashboard.getMinerPayments = function() {
-    axios.get("/api/pools/wae/miners/"+localStorage.getItem('worker-address')+'/payments')
-    .then(function (response) {
-      Dashboard.setMinerPayments(response.data)
-    })
-    .catch(function (err) {
-      console.log(err)
-    });
-  }
-
-
   Dashboard.main()
-
 })
