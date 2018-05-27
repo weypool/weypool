@@ -91,4 +91,15 @@ router.get('/pools/:poolID/miners/:address/payments', function(req, res, next) {
   });  
 });
 
+// Get miner performance
+router.get('/pools/:poolID/miners/:address/performance', function(req, res, next) {
+  axios.get(API_HOST+'/pools/'+req.params.poolID+'/miners/'+req.params.address+'/performance')
+  .then(function (response) {
+    res.json(response.data)
+  })
+  .catch(function (error) {
+    res.json({error: error})
+  });  
+});
+
 module.exports = router

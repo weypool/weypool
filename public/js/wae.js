@@ -63,6 +63,14 @@ $(function() {
     }
   }
 
+  Wae.getMinerPerformance = function(address) {
+    try {
+      return axios.get("/api/pools/wae/miners/"+address+'/performance')
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   Wae.hashFormat = function(hash, decimal, unit="H/s", symbolT=true) {
     if (hash === 0) {
         return '0 ' + unit
