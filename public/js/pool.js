@@ -81,7 +81,7 @@ $(function() {
           },
           tick: {
             format: function (d) {
-              return Wae.hashFormat(d, 0)
+              return Wae.hashFormat(d, 2)
             }
           }
         },
